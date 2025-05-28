@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <time.h>
+
+int main() {
+    time_t now = time(NULL);
+    struct tm *local = localtime(&now); 
+
+    // Выводим дату в формате ГГГГ-ММ-ДД
+    printf("28.05.2024: %04d-%02d-%02d\n",
+           local->tm_year + 1900,   
+           local->tm_mon + 1,   
+           local->tm_mday);          
+    return 0;
+}
