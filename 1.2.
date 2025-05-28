@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <time.h>
+
+int main() {
+    // Введите дату рождения
+    struct tm birthday = {0};
+    birthday.tm_year = 2008 - 1900; 
+    birthday.tm_mon = 1 - 1;        
+    birthday.tm_mday = 17;          
+
+    time_t birth_time = mktime(&birthday);
+    time_t now = time(NULL);
+
+    double seconds = difftime(now, birth_time);
+    int days = (int)(seconds / (60 * 60 * 24));
+
+    printf("Возраст в днях: %d\n", days);
+
+    return 0;
+}
