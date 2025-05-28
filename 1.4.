@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <time.h>
+
+int main() {
+    struct tm birthday = {0};
+    birthday.tm_year = 1990 - 1900;
+    birthday.tm_mon = 4 - 1;
+    birthday.tm_mday = 15;
+
+    time_t now = time(NULL);
+    struct tm *current = localtime(&now);
+
+    int current_year = current->tm_year + 1900;
+    int birth_year = birthday.tm_year + 1900;
+    int age = current_year - birth_year;
+
+    int is_anniversary = (age % 10 == 0);
+
+    printf("В этом году вам %d лет. ", age);
+    if (is_anniversary) {
+        printf("Юбилей!\n");
+    } else {
+        printf("Юбилея нет.\n");
+    }
+
+    return 0;
+}
