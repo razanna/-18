@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int is_leap_year(int year) {
+    return (year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0));
+}
+
+int main() {
+    int year = 2024; // Замените на нужный год
+
+    if (is_leap_year(year)) {
+        printf("%d - високосный год\n", year);
+    } else {
+        printf("%d - не високосный год\n", year);
+    }
+
+    return 0;
+}
